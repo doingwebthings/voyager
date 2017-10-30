@@ -179,7 +179,7 @@ abstract class Controller extends BaseController
                     $filesPath = [];
                     foreach ($files as $key => $file) {
                         $filename = Str::random(20);
-                        $path = $slug.'/'.date('FY').'/';
+                        $path = $slug.'/'.config('voyager.media.uploaddirectory').'/';
                         $file->storeAs(
                             $path,
                             $filename.'.'.$file->getClientOriginalExtension(),
