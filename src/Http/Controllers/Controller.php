@@ -214,7 +214,7 @@ abstract class Controller extends BaseController
 
                     foreach ($files as $key => $file) {
                         $filename = Str::random(20);
-                        $path = $slug.'/'.date('FY').'/';
+                        $path = $slug . '/' . config('voyager.media.uploaddirectory') . '/';
                         array_push($filesPath, $path.$filename.'.'.$file->getClientOriginalExtension());
                         $filePath = $path.$filename.'.'.$file->getClientOriginalExtension();
 
@@ -314,7 +314,7 @@ abstract class Controller extends BaseController
                     $filename = basename($file->getClientOriginalName(), '.'.$file->getClientOriginalExtension());
                     $filename_counter = 1;
 
-                    $path = $slug.'/'.date('FY').'/';
+                    $path = $slug . '/' . config('voyager.media.uploaddirectory') . '/';
 
                     // Make sure the filename does not exist, if it does make sure to add a number to the end 1, 2, 3, etc...
                     while (Storage::disk(config('voyager.storage.disk'))->exists($path.$filename.'.'.$file->getClientOriginalExtension())) {
